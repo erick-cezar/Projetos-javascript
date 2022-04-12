@@ -1,0 +1,144 @@
+<html>
+    <head>
+        <title>Perguntas & Respostas</title>
+    </head>
+    <body>      
+ <h1 class="quest"><u>QUESTIONÁRIO</u></h1>
+        <style>
+            .quest{
+                text-align: center;
+                font-family: 'arial';
+                background-color: blue;
+                color: aliceblue;
+                padding:20px ;
+                
+            }
+
+            body{
+                background-color: rgb(194, 241, 247);
+            }
+
+            .resposta{
+                font-size: 20px;
+            }
+
+            footer{
+                position: fixed;
+                bottom:20; 
+                width:100%;
+                font-family: arial black;
+                color:mediumblue;
+            }
+
+            
+        </style>
+
+<div class="title">
+     <h1><i>Quem criou o princípio da Relatividade?</i></h1>
+</div>
+    <form class="pergunta">
+        <div class="resposta">
+            <span>a) Albert Eistein</span>
+            <input type="radio" name="pergunta1" value="correta"/>
+             <br/>
+        </div>
+    
+         <div class="resposta">
+            <span>b) Stephen Hawking</span>
+            <input type="radio" name="pergunta1" value="incorreta"/>
+            <br/>
+        </div>
+
+        <div class="resposta">
+            <span>c) Erwin Schrödinger</span>
+            <input type="radio" name="pergunta1" value="incorreta"/>
+            <br/>
+        </div>
+    </form>
+
+
+     <div class="title">
+        <h1><i>Quem criou o princípio da Incerteza?</i></h1>
+        </div>
+     <form class="pergunta">
+         <div class="resposta">
+        <span>a) Aristóteles</span>
+        <input type="radio" name="pergunta1" value="incorreta"/>
+         <br/>
+        </div>
+
+        <div class="resposta">
+        <span>b) Heisenberg</span>
+        <input type="radio" name="pergunta1" value="correta"/>
+        <br/>
+        </div>
+
+        <div class="resposta">
+        <span>c) Isaac Newton</span>
+        <input type="radio" name="pergunta1" value="incorreta"/>
+        <br/>
+         </div>
+     </form>
+
+        <script>
+            var elementos = document.querySelectorAll('[type=radio]');
+
+            for(var i = 0; i < elementos.length;i++){
+                elementos[i].addEventListener('change',function(e){
+              let marcado = e.target.value;
+              if(marcado == "correta"){
+
+                let parentNode = e.target.parentNode;
+                parentNode.style.backgroundColor = "green";
+
+                
+
+                let els = parentNode.parentNode.querySelectorAll('[type=radio]');
+
+                for(var n = 0; n < els.length; n++){
+                    els[n].disabled = true;
+                }
+
+
+              }else if(marcado == "incorreta"){
+               
+                let parentNode = e.target.parentNode;
+                parentNode.style.backgroundColor = "red";
+
+                let els = parentNode.parentNode.querySelectorAll('[type=radio]');
+
+                for(var n = 0; n < els.length; n++){
+                    els[n].disabled = true;
+                }
+
+                let correta = parentNode.parentNode.querySelector('[value=correta]');
+                correta.parentNode.style.backgroundColor = 'green';
+
+
+                     }    
+                })
+            }
+        </script>
+        
+<footer><i>"A mente que se expande jamais retorna ao tamanho original." (Albert Eistein)</i> 👅</footer>
+    </body>
+</html>
+
+<!-- 
+    
+>>> COLOCA NO ELEMENTO QUE ANTECEDE A ESSE A OPÇÃO VERDE:
+
+    let el = e.target.previousElementSibling.style.backgroundColor = "green"; 
+
+
+>>> DESABILITAR TODAS AS FUNÇÕES APÓS A RESPOSTA: 
+
+els[n].disable = true;
+
+
+>>> MOSTRA QUAL É A OPÇÃO QUE É VERDADEIRA:
+
+let correta = parentNode.parentNode.querySelectorAll
+('[value=correta]');
+
+-->
